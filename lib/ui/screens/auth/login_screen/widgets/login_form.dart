@@ -4,9 +4,9 @@ import 'package:flutter_blog/_core/constants/size.dart';
 import 'package:flutter_blog/_core/utils/validator_util.dart';
 import 'package:flutter_blog/data/dto/request_dto/user_request/user_request.dart';
 import 'package:flutter_blog/data/store/session_store.dart';
-import 'package:flutter_blog/ui/widgets/text_form_field/custom_join_text_form_field.dart';
+import 'package:flutter_blog/ui/screens/auth/join_screen/widgets/join_text_form_field.dart';
 import 'package:flutter_blog/ui/widgets/button_items/button/custom_elavated_button.dart';
-import 'package:flutter_blog/ui/widgets/text_form_field/custom_login_text_form_field.dart';
+import 'package:flutter_blog/ui/screens/auth/login_screen/widgets/login_text_form_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginForm extends ConsumerWidget {

@@ -11,7 +11,7 @@ import 'package:flutter_blog/ui/screens/auth/join_screen/widgets/join_term_agree
 import 'package:flutter_blog/ui/widgets/button_items/custom_checkbox_item.dart';
 import 'package:flutter_blog/ui/widgets/button_items/custom_radio_button_item.dart';
 import 'package:flutter_blog/ui/widgets/line/custom_line.dart';
-import 'package:flutter_blog/ui/widgets/text_form_field/custom_join_text_form_field.dart';
+import 'package:flutter_blog/ui/screens/auth/join_screen/widgets/join_text_form_field.dart';
 import 'package:flutter_blog/ui/widgets/button_items/button/custom_elavated_button.dart';
 import 'package:flutter_check_box_rounded/flutter_check_box_rounded.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

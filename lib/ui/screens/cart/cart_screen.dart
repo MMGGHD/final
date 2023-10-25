@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blog/_core/constants/color.dart';
 import 'package:flutter_blog/_core/constants/font.dart';
 import 'package:flutter_blog/_core/constants/size.dart';
-import 'package:flutter_blog/ui/screens/cart/cartList_view_model.dart';
+import 'package:flutter_blog/ui/screens/cart/cart_list_view_model.dart';
 import 'package:flutter_blog/data/store/param_store.dart';
 import 'package:flutter_blog/ui/widgets/button_items/custom_checkbox_item.dart';
 import 'package:flutter_check_box_rounded/flutter_check_box_rounded.dart';
@@ -17,7 +17,7 @@ class CartScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Param? param = ref.watch(paramProvider);
-    CartDTOListModel? cartDTOListModel = ref.watch(cartDTOListProvider);
+    CartListModel? cartDTOListModel = ref.watch(cartDTOListProvider);
     if (cartDTOListModel == null) {
       return Center(child: CircularProgressIndicator());
     } else {

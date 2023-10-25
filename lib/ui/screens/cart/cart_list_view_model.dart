@@ -9,14 +9,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 
 // 1. 창고 데이터
-class CartDTOListModel {
+class CartListModel {
   CartDTO cartDTO;
-  CartDTOListModel(this.cartDTO);
+  CartListModel(this.cartDTO);
 }
 
 // 2. 창고
-class CartDTOListViewModel extends StateNotifier<CartDTOListModel?> {
-  CartDTOListViewModel(super._state, this.ref);
+class CartListViewModel extends StateNotifier<CartListModel?> {
+  CartListViewModel(super._state, this.ref);
   Ref ref;
 
   Future<void> notifyInit() async {
@@ -25,7 +25,7 @@ class CartDTOListViewModel extends StateNotifier<CartDTOListModel?> {
     ResponseDTO responseDTO = await CartDTORepository().fetchCartList();
     Logger().d("여까지실행");
     Logger().d(responseDTO.response);
-    state = CartDTOListModel(responseDTO.response);
+    state = CartListModel(responseDTO.response);
   }
 
   void plusQuantity(int index) {
@@ -33,7 +33,7 @@ class CartDTOListViewModel extends StateNotifier<CartDTOListModel?> {
     if (index >= 0 && index < state!.cartDTO.cartProducts.length) {
       state!.cartDTO.cartProducts[index].quentity++;
     }
-    state = CartDTOListModel(state!.cartDTO);
+    state = CartListModel(state!.cartDTO);
   }
 
   void minusQuantity(int index) {
@@ -43,7 +43,7 @@ class CartDTOListViewModel extends StateNotifier<CartDTOListModel?> {
         state!.cartDTO.cartProducts[index].quentity--;
       }
     }
-    state = CartDTOListModel(state!.cartDTO);
+    state = CartListModel(state!.cartDTO);
   }
 
   void calSumOriginPrice() {
@@ -54,7 +54,7 @@ class CartDTOListViewModel extends StateNotifier<CartDTOListModel?> {
       state!.cartDTO.cartProducts.forEach((cartProduct) {
         sumOriginPrice += cartProduct.beforeDiscount * cartProduct.quentity;
         state!.cartDTO.totalBeforePrice = sumOriginPrice;
-        state = CartDTOListModel(state!.cartDTO);
+        state = CartListModel(state!.cartDTO);
       });
     }
   }
@@ -69,7 +69,7 @@ class CartDTOListViewModel extends StateNotifier<CartDTOListModel?> {
             (cartProduct.beforeDiscount - cartProduct.discountedPrice) *
                 (cartProduct.quentity);
         state!.cartDTO.totalDiscountPrice = sumDiscountPrice;
-        state = CartDTOListModel(state!.cartDTO);
+        state = CartListModel(state!.cartDTO);
       });
     }
   }
@@ -97,7 +97,6 @@ class CartDTOListViewModel extends StateNotifier<CartDTOListModel?> {
 
 // 3. 창고 관리자 (View 빌드되기 직전에 생성됨)
 final cartDTOListProvider =
-    StateNotifierProvider.autoDispose<CartDTOListViewModel, CartDTOListModel?>(
-        (ref) {
-  return CartDTOListViewModel(null, ref)..notifyInit();
+    StateNotifierProvider.autoDispose<CartListViewModel, CartListModel?>((ref) {
+  return CartListViewModel(null, ref)..notifyInit();
 });
