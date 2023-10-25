@@ -27,7 +27,7 @@ class SessionStore extends SessionUser {
     ResponseDTO responseDTO = await UserRepository().fetchJoin(joinReqDTO);
 
     // 2. 비지니스 로직
-    if (responseDTO.response == 1) {
+    if (responseDTO.response == true) {
       Navigator.pushNamed(mContext!, Move.loginScreen);
     } else {
       ScaffoldMessenger.of(mContext!).showSnackBar(

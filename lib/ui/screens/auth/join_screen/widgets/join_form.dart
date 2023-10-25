@@ -18,9 +18,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class JoinForm extends ConsumerWidget {
   final _formKey = GlobalKey<FormState>();
+  final _userId = TextEditingController();
+  final _userPassword = TextEditingController();
+  final _userConfirmPassword = TextEditingController();
   final _username = TextEditingController();
-  final _email = TextEditingController();
-  final _password = TextEditingController();
+  final _userEmail = TextEditingController();
+  final _userBirth = DateTime.now();
+  final _gender = Gender;
 
   JoinForm({Key? key}) : super(key: key);
 
@@ -36,7 +40,7 @@ class JoinForm extends ConsumerWidget {
             placeholderText: "아이디를 입력해주세요",
             obscureText: false,
             funValidator: validateUsername(),
-            controller: _username,
+            controller: _userId,
           ),
           const SizedBox(height: mediumGap),
           CustomJoinTextFormField(
@@ -45,7 +49,7 @@ class JoinForm extends ConsumerWidget {
             placeholderText: "비밀번호를 입력해주세요",
             obscureText: false,
             funValidator: validateEmail(),
-            controller: _email,
+            controller: _userPassword,
           ),
           const SizedBox(height: mediumGap),
           CustomJoinTextFormField(
@@ -54,7 +58,7 @@ class JoinForm extends ConsumerWidget {
             placeholderText: "비밀번호를 한번 더 입력해주세요",
             obscureText: true,
             funValidator: validatePassword(),
-            controller: _password,
+            controller: _userConfirmPassword,
           ),
           const SizedBox(height: mediumGap),
           CustomJoinTextFormField(
@@ -63,7 +67,7 @@ class JoinForm extends ConsumerWidget {
             placeholderText: "이름을 입력해주세요",
             obscureText: true,
             funValidator: validatePassword(),
-            controller: _password,
+            controller: _username,
           ),
           const SizedBox(height: mediumGap),
           CustomJoinTextFormField(
@@ -72,11 +76,15 @@ class JoinForm extends ConsumerWidget {
             placeholderText: "예) marketkurly@kurly.com",
             obscureText: true,
             funValidator: validatePassword(),
-            controller: _password,
+            controller: _userEmail,
           ),
           SizedBox(
-            height: smallGap,
+            height: mediumGap,
           ),
+          DatePicker(),
+          const SizedBox(height: mediumGap),
+          RadioButton(),
+          const SizedBox(height: mediumGap),
         ],
       ),
     );

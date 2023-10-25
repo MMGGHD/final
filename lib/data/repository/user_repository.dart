@@ -10,7 +10,7 @@ class UserRepository {
     try {
       // dynamic -> http body
       Response<dynamic> response =
-          await dio.post("/join", data: requestDTO.toJson());
+          await dio.post("/api/userJoin", data: requestDTO.toJson());
       ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
       //responseDTO.data = User.fromJson(responseDTO.data);
 
