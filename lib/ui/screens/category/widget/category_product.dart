@@ -25,6 +25,7 @@ class CategoryProducts extends ConsumerWidget {
     if (model != null) {
       categorys = model.categorys;
     }
+    print("가져옴");
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
